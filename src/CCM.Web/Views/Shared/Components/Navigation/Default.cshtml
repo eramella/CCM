@@ -1,0 +1,74 @@
+﻿@model CCM.ViewModels.CampVm
+
+<div id="navbar-main">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span>
+                </button>
+                <a asp-controller="home" asp-action="index" asp-fragment="headerwrap" class="navbar-brand hidden-xs hidden-sm"><span class="fa fa-code fa-lg" style="font-weight: bold; color:#3498db;"></span></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Model.State == CCM.Business.Utilities.EnumUtilities.GetEnumDescription(CCM.Data.Enums.CampState.Active))
+                    {
+                        <li><a asp-controller="event" asp-action="rsvp">RSVP</a></li>
+                    }
+                    <li><a asp-controller="home" asp-action="index" asp-fragment="sponsors">Sponsors</a></li>
+                    <li><a asp-controller="home" asp-action="index" asp-fragment="location">Location</a></li>
+                    @if (Model.State == CCM.Business.Utilities.EnumUtilities.GetEnumDescription(CCM.Data.Enums.CampState.Active))
+                    {
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" asp-controller="camp" asp-route-id="@Model.Id" role="button" aria-haspopup="true" aria-expanded="false">
+                                Program <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="speakers">Speakers</a></li>
+                                <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="sessions">Session List</a></li>
+                                <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="tracks">Tracks</a></li>
+                                <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="schedule">Schedule</a></li>
+                            </ul>
+                        </li>
+                    }
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" asp-controller="home" asp-action="index" role="button" aria-haspopup="true" aria-expanded="false">
+                            About <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="home" asp-action="index" asp-fragment="aboutWhat">What is Code Camp?</a></li>
+                            <li><a asp-controller="home" asp-action="index" asp-fragment="aboutTeam">Meet our Team</a></li>
+                            <li><a asp-controller="PastEvents" asp-action="index">Past Code Camps</a></li>
+                            <li><a asp-controller="contact" asp-action="index">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form asp-controller="Auth" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a asp-controller="Profile" asp-action="Profile" title="Manage">Hi @User.Identity.Name!</a>
+                            </li>
+                            @if (User.IsInRole("admin"))
+                            {
+                                <li><a asp-controller="Camp" asp-action="Index" asp-route-id="@Model.Id" asp-fragment="settings">Settings</a></li>
+                            }
+                            <li>
+                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
+                            </li>
+                        </ul>
+                    </form>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a asp-controller="Auth" asp-action="Register">Register</a></li>
+                        <li><a asp-controller="Auth" asp-action="Login">Log in</a></li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

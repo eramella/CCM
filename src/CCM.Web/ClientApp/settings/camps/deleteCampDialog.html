@@ -1,0 +1,16 @@
+﻿<template>
+    <ux-dialog style="width:300px">
+        <ux-dialog-header style="background-color:rgba(255, 0, 0, 0.4);">
+            <h3 class="text-danger"><strong>Warning!</strong></h3>
+        </ux-dialog-header>
+        <ux-dialog-body class="text-center">
+            <p class="text-info"><strong>This Camp will be delete permanently!!</strong><br />
+            Along with all sessions, tracks, etc.<br />
+            Reconfirm that you would like to permanently delete this Camp and all its associations.</p>
+        </ux-dialog-body>
+        <ux-dialog-footer>
+            <button type="button" class="btn btn-danger pull-left" click.trigger="deleteCamp()">Delete Camp</button>
+            <button type="button" attach-focus="true" class="btn btn-success pull-right" click.trigger="cancel()">Cancel</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

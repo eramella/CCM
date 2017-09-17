@@ -1,0 +1,30 @@
+﻿/*bootstrap*/
+$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+/*font-awesome*/
+$fa-font-path: '../../node_modules/font-awesome/fonts';
+@import '../../node_modules/font-awesome/scss/font-awesome.scss';
+
+/*Shield_Theme (converted to scss)*/
+@import '../Vendors/Shield_Theme/assets/css/main.scss';
+@import '../Vendors/Shield_Theme/assets/css/icomoon.scss';
+@import '../Vendors/Shield_Theme/assets/css/animate-custom.scss';
+
+/*Custom Styles*/
+@import 'PageStyles/_variables.scss';
+@import 'PageStyles/_styckyFooter.scss';
+@import 'PageStyles/_fileUpload.scss';
+@import 'PageStyles/_panel.scss';
+@import 'PageStyles/_sponsorSection.scss';
+@import 'PageStyles/_googleMapSection.scss';
+@import 'PageStyles/_childNavbar.scss';
+@import 'PageStyles/_loaderBar.scss';
+@import 'PageStyles/_roundImageCropper.scss';
+@import 'PageStyles/_editorContent.scss';
+    
+
+
+body {
+    padding-top: $body-top-margin;
+}

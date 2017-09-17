@@ -1,0 +1,124 @@
+﻿<template>
+    <require from="../../helpers/date-format"></require>
+    <require from="../../components/image-upload"></require>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <br>
+                <h1 class="centered">CONFIGURATION</h1>
+                <hr>
+                <br>
+                <form class="form-horizontal" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="CampName">Camp Name:</label>
+                        <input type="text" id="CampName" class="form-control" value.bind="settings.campName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="LocationAddress">Tag Line:</label>
+                        <input type="text" id="TagLine" class="form-control" value.bind="settings.tagLine" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nextCamp">Next Camp:</label>
+                        <select class="form-control" id="nextCamp" value.bind="settings.nextCamp">
+                            <option value="">-Select Next Camp-</option>
+                            <option model.bind="camp.id" repeat.for="camp of upcomingCamps">
+                                ${camp.dateFrom | dateFormat:'MMM DD'} / ${camp.dateTo | dateFormat:'MMM DD'} @ ${camp.locationName} (${camp.state})
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <p style="margin-bottom:0px">
+                            You can upload a maximum of 5 pictures for the home page banner. The banner will act as a slide show.<br />
+                            <em>Best image size is 1500px by 480px</em><br />
+                            <strong>Make sure the "First Image" always have a picture uploaded, otherwise the slide show will not work!</strong>
+                        </p>
+                    </div>
+                    <div class="row" style="margin-bottom:15px">
+                        <div class="col-md-6" style="padding-right: 50px">
+                            <div class="form-group">
+                                <label for="pic1Upload">First Image:</label><br />
+                                <div class="sponsor-img-gold ${settings.image1Url?'':'hidden'}">
+                                    <img class="img-thumbnail" src.bind="settings.image1Url" if.bind="!image1deleted" />
+                                    <div>
+                                        <p if.bind="image1deleted" class="text-danger">Click save to actually remove image!</p>
+                                        <button typeof="button" class="btn btn-xs ${image1deleted ? 'btn-default' : 'btn-danger'}" click.delegate="image1deleted = !image1deleted">${image1deleted ? 'Undelete':'Delete'} Img</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <image-upload id.bind="pic1Upload" view-model.ref="upload1vm" file.bind="pic1file"></image-upload>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding-right: 50px">
+                            <div class="form-group">
+                                <label for="pic2Upload">Second Image:</label><br />
+                                <div class="sponsor-img-gold ${settings.image2Url?'':'hidden'}">
+                                    <img class="img-thumbnail" src.bind="settings.image2Url" if.bind="!image2deleted" />
+                                    <div>
+                                        <p if.bind="image2deleted" class="text-danger">Click save to actually remove image!</p>
+                                        <button typeof="button" class="btn btn-xs ${image2deleted ? 'btn-default' : 'btn-danger'}" click.delegate="image2deleted = !image2deleted">${image2deleted ? 'Undelete':'Delete'} Img</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <image-upload id.bind="pic2Upload" view-model.ref="upload2vm" file.bind="pic2file"></image-upload>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:15px">
+                        <div class="col-md-6" style="padding-right: 50px">
+                            <div class="form-group">
+                                <label for="pic3Upload">Third Image:</label><br />
+                                <div class="sponsor-img-gold ${settings.image3Url?'':'hidden'}">
+                                    <img class="img-thumbnail" src.bind="settings.image3Url" if.bind="!image3deleted" />
+                                    <div>
+                                        <p if.bind="image3deleted" class="text-danger">Click save to actually remove image!</p>
+                                        <button typeof="button" class="btn btn-xs ${image3deleted ? 'btn-default' : 'btn-danger'}" click.delegate="image3deleted = !image3deleted">${image3deleted ? 'Undelete':'Delete'} Img</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <image-upload id.bind="pic3Upload" view-model.ref="upload3vm" file.bind="pic3file"></image-upload>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding-right: 50px">
+                            <div class="form-group">
+                                <label for="pic4Upload">Forth Image:</label><br />
+                                <div class="sponsor-img-gold ${settings.image4Url?'':'hidden'}">
+                                    <img class="img-thumbnail" src.bind="settings.image4Url" if.bind="!image4deleted" />
+                                    <div>
+                                        <p if.bind="image4deleted" class="text-danger">Click save to actually remove image!</p>
+                                        <button typeof="button" class="btn btn-xs ${image4deleted ? 'btn-default' : 'btn-danger'}" click.delegate="image4deleted = !image4deleted">${image4deleted ? 'Undelete':'Delete'} Img</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <image-upload id.bind="pic4Upload" view-model.ref="upload4vm" file.bind="pic4file"></image-upload>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="padding-right: 50px">
+                            <div class="form-group">
+                                <label for="pic5Upload">Fifth Image:</label><br />
+                                <div class="sponsor-img-gold ${settings.image5Url?'':'hidden'}">
+                                    <img class="img-thumbnail" src.bind="settings.image5Url" if.bind="!image5deleted"/>
+                                    <div>
+                                        <p if.bind="image5deleted" class="text-danger">Click save to actually remove image!</p>
+                                        <button typeof="button" class="btn btn-xs ${image5deleted ? 'btn-default' : 'btn-danger'}" click.delegate="image5deleted = !image5deleted">${image5deleted ? 'Undelete':'Delete'} Img</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <image-upload id.bind="pic5Upload" view-model.ref="upload5vm" file.bind="pic5file"></image-upload>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="button" click.delegate="save()" class="btn btn-success btn-lg" style="width:400px">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

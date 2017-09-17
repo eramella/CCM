@@ -1,0 +1,23 @@
+﻿#map-canvas {
+    height: 600px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#location .map .overlay-box {
+    position: absolute;
+    top: 100px;
+    z-index: 10;
+    height: 400px;
+}
+
+#location .map .overlay-box .panel {
+    box-shadow: 0 0 7px 0 rgba(26, 26, 26, 0.4);
+}
+
+#location .map {
+    position: relative;
+    margin: 0;
+    padding-bottom: 60px;
+}

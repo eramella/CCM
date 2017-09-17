@@ -1,0 +1,98 @@
+@model CCM.ViewModels.UserVm
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_FooterLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h1 class="centered">MY PROFILE</h1>
+        <hr>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row panel-header-bg">
+                <div class="col-xs-12">
+                    <div class="round-image-cropper" style="background-image: url('/Profile/GetImage');"></div>
+                    <h2><strong>@Model.Username</strong></h2>
+                </div>
+            </div>
+            <div class="row panel-content-bg">
+                <P>Change your contact details here. This information is used in the members list, and for the SoCal CodeCamp team to contact you.</P>
+                <form asp-action="SaveProfile" asp-controller="Profile" enctype="multipart/form-data" method="post" role="form" novalidate>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Username" type="hidden" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="FirstName"></label>
+                                <input asp-for="FirstName" class="form-control">
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LastName"></label>
+                                <input asp-for="LastName" class="form-control">
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MobilePhone"></label>
+                                <input asp-for="MobilePhone" class="form-control">
+                                <span asp-validation-for="MobilePhone" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email"></label>
+                                <input asp-for="Email" class="form-control">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="checkbox">
+                                <label asp-for="OkToContact">
+                                    <input type="checkbox" asp-for="OkToContact" /> Enable Emailing
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LinkedinUrl"></label>
+                                <input asp-for="LinkedinUrl" class="form-control">
+                                <span asp-validation-for="LinkedinUrl" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="TwitterUrl"></label>
+                                <input asp-for="TwitterUrl" class="form-control">
+                                <span asp-validation-for="TwitterUrl" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="pictureUpload">Upload your avatar piture:</label>
+                                <div class="input-group">
+                                    <label class="input-group-btn">
+                                        <span class="btn btn-primary">
+                                            Browse&hellip; <input asp-for="UploadedImage" type="file" style="display: none;">
+                                        </span>
+                                    </label>
+                                    <input id="pictureUpload" type="text" class="form-control" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bioText">You Bio</label>
+                                <textarea id="bioText" rows="9" class="form-control" asp-for="Bio"></textarea>
+                            </div>
+                            <div class="checkbox">
+                                <label asp-for="PublicProfile">
+                                    <input type="checkbox" asp-for="PublicProfile" /> Public Profile
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success col-xs-2">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/pagedist/profilePage.js" asp-append-version="true"></script>
+}

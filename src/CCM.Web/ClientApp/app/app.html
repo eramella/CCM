@@ -1,0 +1,10 @@
+<template>
+    <loading-indicator loading.bind="router.isNavigating || fetch.isRequesting"></loading-indicator>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <router-view></router-view>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,23 @@
+﻿.speakerbio-popup {
+    border-radius: 0;
+    border: none;
+    background-color: #2b2b2b;
+    color: #dadada;
+    max-width: 60%;
+}
+
+    .speakerbio-popup button {
+        color: #dadada;
+    }
+
+    .speakerbio-popup .round-image-cropper {
+        float: left;
+    }
+
+    .speakerbio-popup h1, .speakerbio-popup h2, .speakerbio-popup h3, .speakerbio-popup h4, .speakerbio-popup p, .speakerbio-popup div {
+        color: #dadada;
+    }
+
+.speakerbio-popup ux-dialog-header {
+    overflow: hidden;
+}

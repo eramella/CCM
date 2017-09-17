@@ -1,0 +1,9 @@
+﻿div.ql-toolbar {
+    border: 1px solid #ccc;
+    border-radius: 4px 4px 0 0;
+}
+
+div.ql-container {
+    border: 1px solid #ccc;
+    border-radius: 0 0 4px 4px;
+}

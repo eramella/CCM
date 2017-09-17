@@ -1,0 +1,46 @@
+﻿<template>
+    <require from="../components/quill-editor"></require>
+    <require from="../components/tags-input"></require>
+
+    <div class="container">
+        <br>
+        <h1 class="centered">ADD A NEW SESSION!</h1>
+        <hr>
+        <br>
+        <p>If you don't see a good track please select "Unknown" and we will add your session to the appropriate track or create one as needed.</p>
+        <p>All sessions are taken in a first come basis. If you submit a session that is not listed in the session list then your session may be on the waiting list. You will be contacted if you are moved from the waiting list.</p>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" class="form-control" value.bind="session.title">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <quill-editor value.bind="session.description"></quill-editor>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="selLevel">Select Session Level:</label>
+                        <select class="form-control" id="selLevel" value.bind="session.level">
+                            <option value="">-Select Level-</option>
+                            <option value="${level.value}" repeat.for="level of sessionLevels">
+                                ${level.key}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+
+                        <label for="tags">Session Tags:</label>
+                        <tags-input options.bind="{url: '/api/sessions/tags', displayKey: 'name', valueKey: 'id'}"
+                                    placeholder="Add tags"
+                                    tags.bind="session.tags"></tags-input>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" click.delegate="save()" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</template>

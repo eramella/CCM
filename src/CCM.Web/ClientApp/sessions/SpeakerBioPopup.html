@@ -1,0 +1,14 @@
+﻿<template>
+    <require from="./speakerBioPopup.css"></require>
+    <ux-dialog class="speakerbio-popup">
+        <ux-dialog-header>
+            <div class="round-image-cropper" css="background-image: url('/Profile/GetImage/${ userId }');"></div>
+            <h3 style="margin-left:80px;line-height:60px;">${speaker.firstName} ${speaker.lastName}</h3>
+        </ux-dialog-header>
+        <ux-dialog-body>
+            <p>
+                ${speaker.bio}
+            </p>
+        </ux-dialog-body>
+    </ux-dialog>
+</template>

@@ -1,0 +1,42 @@
+<template>
+    <require from="./sessions.css"></require>
+
+    <div class="container">
+        <div class="row">
+            <h1 class="centered">SESSIONS</h1>
+            <hr>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right session">
+                <a class="btn btn-default" route-href="route: addSession">Add A Session</a>
+            </div>
+        </div>
+        <div class="row" repeat.for="session of sessions">
+            <div class="col-md-12 session">
+                <div class="col-sm-2 col-xs-12 col-height session-header">
+
+                    <div class="round-image-cropper" css="background-image: url('/Profile/GetImage/${ session.userId }');"></div>
+                    <a click.delegate="seeSpeakerBio(session.userId)" style="cursor: pointer"><h4>${session.userFirstName} ${session.userLastName}</h4></a>
+                    <h5>Level: ${session.levelName}</h5>
+
+
+                </div>
+                <div class="col-sm-10 col-xs-12 col-height session-content">
+                    <h2 click.trigger="seeFullSession(session)" style="cursor:pointer">${ session.title }</h2>
+                    <p class="session-text">
+                        <span  innerHTML.bind="session.description"></span>
+                        
+
+                    </p>
+                    <div class="text-right" style="margin-top:-25px;"><small><span click.delegate="seeFullSession(session)" class="label label-default" style="cursor:pointer">ReadMore</span></small></div>
+                    <p>
+                        <span repeat.for="tag of session.tags">
+                            <span class="label label-info">${tag}</span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

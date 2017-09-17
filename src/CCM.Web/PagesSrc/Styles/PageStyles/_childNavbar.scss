@@ -1,0 +1,29 @@
+﻿.child-navbar {
+    border: none;
+    background-color: #f3f3f3;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    top:52px;
+}
+
+
+.child-navbar > li.active > a, .child-navbar > li.active > a:hover, .child-navbar > li.active > a:focus {
+    color: #555555;
+    background-color: #fff;
+    border: none;
+    cursor: default;
+}
+
+.child-navbar > li > a {
+    margin-right: 2px;
+    line-height: 1.42857;
+    border: none;
+    }
+
+.child-navbar > li > a {
+    position: relative;
+    display: block;
+    padding: 5px 15px;
+}

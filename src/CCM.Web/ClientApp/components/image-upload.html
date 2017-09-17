@@ -1,0 +1,16 @@
+﻿<template>
+    <div class="input-group">
+        <label class="input-group-btn">
+            <span class="btn btn-primary">
+                Browse&hellip; <input id.bind="id"
+                                      type="file"
+                                      ref="fileInput"
+                                      files.bind="selectedFiles"
+                                      change.delegate="updateFileName($event.target)"
+                                      accept="image/*"
+                                      style="display: none;">
+            </span>
+        </label>
+        <input id="imageName" type="text" class="form-control" value.bind="fileName" readonly>
+    </div>
+</template>

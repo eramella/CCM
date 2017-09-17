@@ -1,0 +1,7 @@
+﻿.session-popup {
+    border-radius: 0;
+    border: none;
+    background-color: #f2f2f2;
+    color: #000;
+    max-width: 60%;
+}

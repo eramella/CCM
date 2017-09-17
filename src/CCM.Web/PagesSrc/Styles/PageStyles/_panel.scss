@@ -1,0 +1,30 @@
+﻿/* ==========================================================================
+   Themed Panels
+   ========================================================================== */
+
+.panel-header-bg {
+    background: #2b2b2b;
+    padding: 15px;
+}
+
+.panel-header-bg h2 {
+    color: #dadada;
+    vertical-align: middle;
+    margin-top:10px;
+    margin-bottom: 10px;
+    margin-left:60px;
+    padding-left:10px;
+}
+
+/*.panel-header-bg img {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    margin-right: 25px;
+    float:left;
+}*/
+
+.panel-content-bg {
+    padding: 15px;
+    background: #f2f2f2;
+}

@@ -1,0 +1,338 @@
+﻿@using Microsoft.Extensions.Options
+@using CCM.ViewModels;
+
+@inject IOptions<CcmSettings> settings
+
+@model CCM.ViewModels.HomeSettingsVm
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="headerwrap" name="home">
+    <div id="homecarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            @if (!String.IsNullOrWhiteSpace(Model.Settings.Image1Url))
+            {
+                <div class="item active">
+                    <img src="@Model.Settings.Image1Url" alt="Code Camp Picture 1">
+                </div>
+
+            }
+            @if (!String.IsNullOrWhiteSpace(Model.Settings.Image2Url))
+            {
+                <div class="item">
+                    <img src="@Model.Settings.Image2Url" alt="Code Camp Picture 2">
+                </div>
+            }
+            @if (!String.IsNullOrWhiteSpace(Model.Settings.Image3Url))
+            {
+                <div class="item">
+                    <img src="@Model.Settings.Image3Url" alt="Code Camp Class">
+                </div>
+            }
+            @if (!String.IsNullOrWhiteSpace(Model.Settings.Image4Url))
+            {
+                <div class="item">
+                    <img src="@Model.Settings.Image4Url" alt="Code Camp Class">
+                </div>
+            }
+            @if (!String.IsNullOrWhiteSpace(Model.Settings.Image5Url))
+            {
+                <div class="item">
+                    <img src="@Model.Settings.Image5Url" alt="Code Camp Class">
+                </div>
+            }
+        </div>
+    </div>
+    <header class="carousel-caption">
+        <h1 class="visible-lg"><span class="fa fa-code fa-2x"></span></h1>
+        <h2 class="visible-lg visible-md">@Model.Settings.CampName</h2>
+        <h4 class="visible-md visible-lg">@Model.Settings.TagLine</h4>
+        <h4 class="visible-sm visible-xs">@Model.Settings.CampName</h4>
+    </header>
+</div>
+
+@if (Model.UpcomingCamp != null)
+{
+    <div id="greywrap">
+        <span class="fa  fa-calendar-check-o fa-3x"></span>
+        <h2>Next Code Camp is in @Model.UpcomingCamp.LocationCity!</h2>
+        <h3>@Model.UpcomingCamp.DateFrom.ToString("MMM dd") / @Model.UpcomingCamp.DateTo.ToString("MMM dd, yyyy") @@ @Model.UpcomingCamp.LocationName</h3>
+    </div>
+}
+<section class="section-divider textdivider divider1">
+    <div class="container">
+        <h1>FREE EVENT FOR DEVELOPERS</h1>
+        <hr>
+        <p>This community driven event has become an international trend.</p>
+    </div>
+</section>
+
+<div class="container-fluid" id="sponsors" name="sponsors">
+    <br>
+    <div class="row">
+        <br>
+        <h1 class="centered">SPONSORS</h1>
+        <hr>
+        <br>
+        <br>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br />
+            <h2 class="sponsor-title">Gold Sponsors</h2>
+            <br /><br />
+            <div class="sponsor-img-gold">
+                <a href="https://www.verizondigitalmedia.com/careers/"><img src="~/img/Sponsors/vdms-logo.png" /></a>
+            </div>
+            <div class="sponsor-img-gold">
+                <a href="http://www.sabio.la/"><img src="~/img/Sponsors/SABIO_CULTIVATING.jpg" /></a>
+            </div>
+            <div class="sponsor-img-gold">
+                <a href="https://msdn.microsoft.com/en-us/dn308572.aspx"><img src="~/img/Sponsors/microsoft.png" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br />
+            <h2 class="sponsor-title">Silver Sponsors</h2>
+            <br /><br />
+            <div class="sponsor-img-silver">
+                <a href="https://www.ostechnical.com/"><img src="~/img/Sponsors/ostechnical_logo.png" /></a>
+            </div>
+            <div class="sponsor-img-silver">
+                <a href="https://www.raygun.com/"><img src="~/img/Sponsors/raygun.gif" /></a>
+            </div>
+            <div class="sponsor-img-silver">
+                <a href="http://www.everleap.com/"><img src="~/img/Sponsors/everleap.jpg" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br />
+            <h2 class="sponsor-title">Ruffle Sponsors</h2>
+            <br /><br />
+            <div class="sponsor-img-raffle">
+                <a href="https://www.jetbrains.com/"><img src="~/img/Sponsors/logo_JetBrains_4.png" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br />
+            <h2 class="sponsor-title">Facility Sponsors</h2>
+            <br /><br />
+            <div class="sponsor-img-facility">
+                <a href="http://viterbi.usc.edu/"><img src="~/img/Sponsors/logo-viterbi.png" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br />
+            <h2 class="sponsor-title">Partners</h2>
+            <br /><br />
+            <div class="sponsor-img-other">
+                <a href="https://www.meetup.com/Los-Angeles-Big-Data-Users-Group/"><img src="~/img/Sponsors/600_372160842.jpeg" /></a>
+            </div>
+            <div class="sponsor-img-other">
+                <a href="http://www.meetup.com/Los-Angeles-AWS-Users-Group/"><img src="~/img/Sponsors/600_452148308.jpeg" /></a>
+            </div>
+            <div class="sponsor-img-other">
+                <a href="https://www.meetup.com/LearnToCodeLA"><img src="~/img/Sponsors/global_452528930.jpeg" /></a>
+            </div>
+            <div class="sponsor-img-other">
+                <a href="http://www.meetup.com/LADOTNET/"><img src="~/img/Sponsors/ladotnet.jpg" /></a>
+            </div>
+            <div class="sponsor-img-other">
+                <a href="https://www.meetup.com/LAWebSpeed"><img src="~/img/Sponsors/global_13515986.jpeg" /></a>
+            </div>
+            <div class="sponsor-img-other">
+                <a href="http://www.meetup.com/UXPALA/"><img src="~/img/Sponsors/global_206867932.jpeg" /></a>
+            </div>
+            <div class="sponsor-img-other">
+                <a href="http://www.meetup.com/Apex-Users-Group-El-Segundo/"><img src="~/img/Sponsors/global_444285464.jpeg" /></a>
+            </div>
+            <div class="sponsor-img-other">
+                <a href="https://www.meetup.com/Girl-Develop-It-Los-Angeles"><img src="~/img/Sponsors/global_450838482.jpeg" /></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<section class="section-divider textdivider divider2">
+    <div class="container">
+        <h1>A GREAT LINEUP</h1>
+        <hr>
+        <p>Come learn from the best about the hotest new technologies.</p>
+    </div>
+</section>
+
+@if (Model.UpcomingCamp != null)
+{
+    <div id="location" name="location">
+        <div class="container">
+            <div class="row white">
+                <br />
+                <h1 class="centered">LOCATION</h1>
+                <hr>
+                <br />
+            </div>
+        </div>
+        <div class="map">
+            <div class="col-sm-3 col-xs-4 overlay-box">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <h4><strong>Address</strong></h4>
+                        <address>
+                            @Model.UpcomingCamp.LocationName<br />
+                            @Model.UpcomingCamp.LocationAddress<br />
+                            @Model.UpcomingCamp.LocationCity, @Model.UpcomingCamp.LocationState @Model.UpcomingCamp.LocationZip
+                        </address>
+
+                        <h4><strong>Information</strong></h4>
+                        <div class="editor-content">
+                            @Html.Raw(Model.UpcomingCamp.LocationInfo)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="map-canvas"></div>
+        </div>
+    </div>
+}
+
+<section class="section-divider textdivider divider3">
+    <div class="container">
+        <h1>Community</h1>
+        <hr>
+        <p>Network with other developers and technology enthusiatists!</p>
+    </div>
+</section>
+
+<div class="container" id="aboutWhat" name="about">
+    <div class="row white">
+        <br>
+        <h1 class="centered">WHAT IS SOCAL CODE CAMP</h1>
+        <hr>
+        <div class="col-lg-6">
+            <p>
+                Code Camp is a community driven software and technology conference. This event has become an international trend where peer groups of all platforms, programming languages and disciplines band together to bring content to the community.<br />
+                SoCal Code Camp is a volunteer run event and is completely free for attendees! Code Camp takes place over the course of a weekend and includes great sessions and workshops, networking events and a raffle
+            </p>
+
+        </div>
+
+        <div class="col-lg-6">
+            <p>
+                Who is speaking at Code Camp? YOU are, YOUR PEERS are, and YOUR LOCAL EXPERTS are all are welcome! This is a community event and one of the main purposes of the event is to have local community members step up and offer some cool presentations! Don't worry if you have never given a presentation before, we'll give you some tips if you need help, and this a great opportunity to spread your wings. Of course, we do have some ringers on our speaker list as well stay tuned!<br />
+                And yes the price is right! FREE FREE FREE Please just check in when you get to the event so we can know how many people showed up and so we can give you some fun stuff.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="aboutTeam" name="aboutTeam">
+    <br>
+    <div class="row white centered">
+        <h1 class="centered">MEET OUR AWESOME TEAM</h1>
+        <hr>
+        <br>
+        <br>
+        <div class="col-md-4 centered">
+            <img class="img img-circle " src="~/img/Team/hattan.jpg" height="120px" width="120px" alt="" />
+            <br>
+            <h4><b>Hattan Shobokshi</b></h4>
+            <a href="http://www.twitter.com/hattan"><span class="fa fa-twitter-square fa-2x"></span></a>
+            <a href="https://www.linkedin.com/pub/hattan-shobokshi/0/868/919"><span class="fa fa-linkedin-square fa-2x"></span></a>
+            <p>Hattan Shobokshi is a software architect, technical speaker & Microsoft MVP. Hattan is responsible for developing applications on a variety of platforms including web and mobile devices. He is passionate about delivering scalable applications that adhere to industry best practices. He is Vice President of the Los Angeles .NET user group as well as a member of the organizing committee for SoCal Code Camp. He regularly presents at local user groups and code camps.</p>
+        </div>
+
+        <div class="col-md-4 centered">
+            <img class="img img-circle" src="~/img/Team/daisy.jpg" height="120px" width="120px" alt="">
+            <br>
+            <h4><b>Daisy Shobokshi</b></h4>
+            <a href="https://www.linkedin.com/in/daisyshobokshi"><span class="fa fa-linkedin-square fa-2x"></span></a>
+            <p></p>
+        </div>
+
+        <div class="col-md-4 centered">
+            <img class="img img-circle" src="~/img/Team/art.jpg" height="120px" width="120px" alt="">
+            <br>
+            <h4><b>Art Villa</b></h4>
+            <a href="https://www.linkedin.com/pub/arthur-villa/3/631/b90"><span class="fa fa-linkedin-square fa-2x"></span></a>
+            <p></p>
+        </div>
+    </div>
+    <div class="row white centered">
+        <div class="col-md-4 centered">
+            <img class="img img-circle" src="~/img/Team/janet.jpg" height="120px" width="120px" alt="">
+            <br>
+            <h4><b>Janet Chung</b></h4>
+            <a href="https://www.linkedin.com/in/janetchung"><span class="fa fa-linkedin-square fa-2x"></span></a>
+            <p></p>
+        </div>
+
+        <div class="col-md-4 centered">
+            <img class="img img-circle" src="~/img/Team/Charlie.JPG" height="120px" width="120px" alt="">
+            <br>
+            <h4><b>Chuck Bagby</b></h4>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<footer id="footerwrap">
+    <div class="container">
+        <h4>© 2017 Code Camp. All rights reserved. Created by <a href="http://www.emaquest.net">www.emaquest.net</a></h4>
+    </div>
+</footer>
+
+@section Scripts {
+
+    <script src="~/pagedist/homePage.js" asp-append-version="true" type="text/javascript"></script>
+    <script src="@("https://maps.googleapis.com/maps/api/js?key=" + settings.Value.GoogleMapApiKey)"></script>
+
+    @if (Model.UpcomingCamp.LocationAddress != null && @Model.UpcomingCamp.LocationCity != null)
+    {
+        <script>
+        var map;
+        var geocoder = new google.maps.Geocoder();
+        function initialize() {
+            var address = "@(Model.UpcomingCamp.LocationAddress ?? ""), @(Model.UpcomingCamp.LocationCity ?? ""), @(Model.UpcomingCamp.LocationState ?? "") @(Model.UpcomingCamp.LocationZip ?? "")";
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == 'OK') {
+                    createMap(results[0]);
+                } else {
+                    console.error('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        function createMap(geoLocation) {
+            var mapOptions = {
+                zoom: 15,
+                center: geoLocation.geometry.location
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+            var campLocation = geoLocation.geometry.location;
+            var marker = new google.maps.Marker({
+                position: campLocation,
+                title: "@(Model.UpcomingCamp.LocationName ?? "")",
+                animation: google.maps.Animation.BOUNCE
+            });
+            // To add the marker to the map, call setMap();
+            marker.setMap(map);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        </script>
+    }
+}

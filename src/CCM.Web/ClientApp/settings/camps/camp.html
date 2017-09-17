@@ -1,0 +1,79 @@
+﻿<template>
+    <require from="../../helpers/date-format"></require>
+    <require from="../../components/quill-editor"></require>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <br>
+                <h1 class="centered">${ isNewCamp ?  'ADD A NEW CAMP' : 'EDIT CAMP' }</h1>
+                <hr>
+                <br>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <label for="selCampState">Camp State:</label>
+                                <select class="form-control" style="color:dodgerblue;font-weight:bold" id="selCampState" value.bind="currentCamp.state">
+                                    <option>Upcoming</option>
+                                    <option>Active</option>
+                                    <option if.bind="!isNewCamp">Past</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <button if.bind="!isNewCamp" type="button" class="btn btn-danger" click.trigger="deleteCamp()">Delete Camp&nbsp;&nbsp;<span class="glyphicon glyphicon-trash"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="DateFrom">Start on:</label>
+                                <abp-datetime-picker element.bind="fromPicker" value.bind="currentCamp.dateFrom & validate" options.bind="{ format: 'MMM DD, YYYY' }" ></abp-datetime-picker>
+                            </div>                            
+                            <div class="col-sm-6">
+                                <label for="DateTo">Ends on:</label>
+                                <abp-datetime-picker value.bind="currentCamp.dateTo & validate" options.bind="{ format: 'MMM DD, YYYY' }"></abp-datetime-picker>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="LocationName">Camp Location:</label>
+                        <input type="text" id="LocationName" class="form-control" value.bind="currentCamp.locationName & validate" />
+                    </div>
+                    <div class="form-group">
+                        <label for="LocationAddress">Location Address:</label>
+                        <input type="text" id="LocationAddress" class="form-control" value.bind="currentCamp.locationAddress" />
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-9 col-xs-12">
+                                <label for="LocationCity">City:</label>
+                                <input type="text" id="LocationCity" class="form-control" value.bind="currentCamp.locationCity" />
+                            </div>
+                            <div class="col-md-2 col-xs-12">
+                                <label for="LocationZip">Zip:</label>
+                                <input type="text" id="LocationZip" class="form-control" value.bind="currentCamp.locationZip" />
+                            </div>
+                            <div class="col-md-1 col-xs-12">
+                                <label for="LocationState">State:</label>
+                                <select class="form-control" id="LocationState" value.bind="currentCamp.locationState">
+                                    <option value="">--</option>
+                                    <option model.bind="state.abbreviation" repeat.for="state of usStates">
+                                        ${state.abbreviation}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Location Instructions</label>
+                        <quill-editor value.bind="currentCamp.locationInfo" options.bind="editorOptions"></quill-editor>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" click.delegate="save()" class="btn btn-success">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

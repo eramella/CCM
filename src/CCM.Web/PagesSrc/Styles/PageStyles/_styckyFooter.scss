@@ -1,0 +1,25 @@
+﻿html,body {
+    height: 100%;
+    margin: 0;
+}
+
+.content-wrapper {
+    min-height: 100%;
+}
+
+.content {
+    padding-bottom: $body-bottom-margin + 15;
+}
+
+.stickyFooter {
+    height: $body-bottom-margin;
+    margin-top: -$body-bottom-margin;
+    background-color: $nav-bg-color;
+    text-align: center;
+    width: 100%;
+    padding-top: 7px;
+}
+
+.stickyFooter h6 {
+    color: white;
+}

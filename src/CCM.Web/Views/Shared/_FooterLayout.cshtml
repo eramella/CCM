@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <div class="content">
+        @RenderBody()
+    </div>
+</div>
+<footer class="stickyFooter">
+    <h6>© 2017 Code Camp. All rights reserved. Created by <a href="http://www.emaquest.net">www.emaquest.net</a></h6>
+</footer>
+
+@RenderSection("scripts", required: false)

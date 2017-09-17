@@ -1,0 +1,45 @@
+﻿.sponsor-img {
+    padding: 10px 20px;
+    display: inline-block;    
+}
+
+.sponsor-img-gold {
+    @extend .sponsor-img;
+    width: $sponsor-img-width-gold;
+    height: ($sponsor-img-width-gold / 2);
+}
+
+.sponsor-img-silver {
+    @extend .sponsor-img;
+    width: $sponsor-img-width-silver;
+    height: ($sponsor-img-width-silver / 2);
+}
+
+.sponsor-img-raffle {
+    @extend .sponsor-img;
+    width: $sponsor-img-width-raffle;
+    height: ($sponsor-img-width-raffle / 2);
+}
+
+.sponsor-img-facility {
+    @extend .sponsor-img;
+    width: $sponsor-img-width-facility;
+    height: ($sponsor-img-width-facility / 2);
+}
+
+.sponsor-img-other {
+    @extend .sponsor-img;
+    width: $sponsor-img-width-other;
+    height: ($sponsor-img-width-other / 2);
+}
+
+.sponsor-img img {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height:100%;
+}
+
+.sponsor-title {
+    color: #f14a24;
+    text-shadow: 1px 1px 0px #808080;
+}

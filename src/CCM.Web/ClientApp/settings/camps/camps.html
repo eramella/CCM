@@ -1,0 +1,33 @@
+﻿<template>
+    <require from="../../helpers/date-format"></require>
+    <div class="container">
+        <div class="row">
+            <br>
+            <h1 class="centered">CAMPS</h1>
+            <hr>
+            <br>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Location</th>
+                        <th>State</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr repeat.for="camp of camps" dblclick.trigger="selectCamp(camp.id)">
+                        <td>${camp.dateFrom | dateFormat:'MMM DD, YYYY' }</td>
+                        <td>${camp.dateTo | dateFormat:'MMM DD, YYYY' }</td>
+                        <td>${camp.locationName + (camp.locationCity ? ' (' + camp.locationCity+ ')':'')}</td>
+                        <td>${camp.state}</td>
+                        <td class="text-right">
+                            <a route-href="route: camp; params.bind: {id:camp.id}"><span class="glyphicon glyphicon-edit"></span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
