@@ -30,6 +30,26 @@ namespace CCM.Data.Models
 
         public async Task EnsureSeedData()
         {
+            var speakerRoleExist = await _roleManager.RoleExistsAsync("speaker");
+            if (!speakerRoleExist)
+            {
+                await _roleManager.CreateAsync(new IdentityRole("speaker"));
+            }
+            var adminRoleExist = await _roleManager.RoleExistsAsync("admin");
+            if (!adminRoleExist)
+            {
+                await _roleManager.CreateAsync(new IdentityRole("admin"));
+            }
+            var attendeeRoleExist = await _roleManager.RoleExistsAsync("attendee");
+            if (!attendeeRoleExist)
+            {
+                await _roleManager.CreateAsync(new IdentityRole("attendee"));
+            }
+            var teamRoleExist = await _roleManager.RoleExistsAsync("team");
+            if (!teamRoleExist)
+            {
+                await _roleManager.CreateAsync(new IdentityRole("team"));
+            }
             IDirectoryContents contents = _fileProvider.GetDirectoryContents("");
             if (await _userManager.FindByEmailAsync("pippo.franco@emaquest.net") == null)
             {
@@ -44,12 +64,6 @@ namespace CCM.Data.Models
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
                 if (result.Succeeded)
                 {
-                    var roleExist = await _roleManager.RoleExistsAsync("admin");
-                    if (!roleExist)
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole("admin"));
-                    }
-
                     await _userManager.AddToRoleAsync(user, "admin");
                 }
                 IFileInfo fileInfo = _fileProvider.GetFileInfo("/img/TempImg/ema.png");
@@ -77,12 +91,6 @@ namespace CCM.Data.Models
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
                 if (result.Succeeded)
                 {
-                    var roleExist = await _roleManager.RoleExistsAsync("speaker");
-                    if (!roleExist)
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole("speaker"));
-                    }
-
                     await _userManager.AddToRoleAsync(user, "speaker");
                 }
                 IFileInfo fileInfo = _fileProvider.GetFileInfo("/img/TempImg/ema.png");
@@ -108,12 +116,6 @@ namespace CCM.Data.Models
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
                 if (result.Succeeded)
                 {
-                    var roleExist = await _roleManager.RoleExistsAsync("attendee");
-                    if (!roleExist)
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole("attendee"));
-                    }
-
                     await _userManager.AddToRoleAsync(user, "attendee");
                 }
             }
@@ -134,12 +136,6 @@ namespace CCM.Data.Models
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
                 if (result.Succeeded)
                 {
-                    var roleExist = await _roleManager.RoleExistsAsync("admin");
-                    if (!roleExist)
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole("admin"));
-                    }
-
                     await _userManager.AddToRoleAsync(user, "admin");
                 }
 
@@ -169,12 +165,6 @@ namespace CCM.Data.Models
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
                 if (result.Succeeded)
                 {
-                    var roleExist = await _roleManager.RoleExistsAsync("attendee");
-                    if (!roleExist)
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole("attendee"));
-                    }
-
                     await _userManager.AddToRoleAsync(user, "attendee");
                 }
 
@@ -204,12 +194,6 @@ namespace CCM.Data.Models
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
                 if (result.Succeeded)
                 {
-                    var roleExist = await _roleManager.RoleExistsAsync("attendee");
-                    if (!roleExist)
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole("attendee"));
-                    }
-
                     await _userManager.AddToRoleAsync(user, "attendee");
                 }
 
@@ -239,12 +223,6 @@ namespace CCM.Data.Models
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
                 if (result.Succeeded)
                 {
-                    var roleExist = await _roleManager.RoleExistsAsync("attendee");
-                    if (!roleExist)
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole("attendee"));
-                    }
-
                     await _userManager.AddToRoleAsync(user, "attendee");
                 }
 
@@ -273,12 +251,6 @@ namespace CCM.Data.Models
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
                 if (result.Succeeded)
                 {
-                    var roleExist = await _roleManager.RoleExistsAsync("attendee");
-                    if (!roleExist)
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole("attendee"));
-                    }
-
                     await _userManager.AddToRoleAsync(user, "attendee");
                 }
 

@@ -27,6 +27,8 @@ namespace CCM.Business.Repositories
                 users = users.Where(u => u.UserName.Contains(requst.Token) || u.FirstName.Contains(requst.Token) || u.LastName.Contains(requst.Token));
             }
 
+            users = users.OrderBy(o => o.UserName);
+
             var total = users.Count();
 
             if (requst.Skip > 0)
@@ -39,7 +41,9 @@ namespace CCM.Business.Repositories
             var result = new DynamicResult<CCMUser>()
             {
                 Data = users,
-                Total = total
+                Total = total,
+                PageSize = requst.PageSize,
+                Skip = requst.Skip
             };
 
             return result;
