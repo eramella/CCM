@@ -1,20 +1,13 @@
-#Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Code Camp Management
 
-#Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## A web application to manage code camps or other small events
 
-#Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+This is my personal project started as volunteer work for the local Code Camp and then becoming my little side project.
+If you find this work interesting please give it a star and feel free to download it and use it as you please. We still are in the early stages and many features are missing. I will try to document my intent with this project through the Issues and I am accepting suggestions and PR.
 
-#Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+The project is built with [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/) for the back-end and a mix of spa and MVC for the front-end. [Aurelia](http://aurelia.io/) is my client framework of choice. MS-SQL is the data store.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+If you fork or clone or download this project you will be better off using [VS 2017](https://www.visualstudio.com/vs/) or above. By way of VS you don't need to restore any package (Nuget or NPM) as VS will do it for you.
+
+Again any comment or suggestions are very  much appreciate it.
+
