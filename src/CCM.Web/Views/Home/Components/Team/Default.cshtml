@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CCM.ViewModels.UserVm>
+
+<div class="container" id="aboutTeam" name="aboutTeam">
+    <br>
+    <div class="row white centered">
+        <h1 class="centered">MEET OUR AWESOME TEAM</h1>
+        <hr>
+        <br>
+        <br>
+        @foreach (var user in Model.Take(3))
+        {
+            <div class="col-md-4 centered">
+                @if (user.Avatar != null)
+                {
+                    <img class="img img-circle " src="~/Profile/GetImage/@user.Id" height="120px" width="120px" alt="" />
+                    <br>
+                }
+                <h4><b>@user.FirstName @user.LastName</b></h4>
+                @if (!string.IsNullOrWhiteSpace(user.TwitterUrl))
+                {
+                    <a href="@user.TwitterUrl"><span class="fa fa-twitter-square fa-2x"></span></a>
+                }
+                @if (!string.IsNullOrWhiteSpace(user.LinkedinUrl))
+                {
+                    <a href="@user.LinkedinUrl"><span class="fa fa-linkedin-square fa-2x"></span></a>
+                }
+                @if (!string.IsNullOrWhiteSpace(user.Bio))
+                {
+                    <p>@user.Bio</p>
+                }
+            </div>
+        }
+    </div>
+    @if (Model.Count() > 3)
+    {
+        @for (int i = 3; i < Model.Count(); i += 3)
+        {
+            <div class="row white centered">
+                @foreach (var user in Model.Skip(i).Take(3))
+                {
+                    <div class="col-md-4 centered">
+                        @if (user.Avatar != null)
+                        {
+                            <img class="img img-circle " src="~/Profile/GetImage/@user.Id" height="120px" width="120px" alt="" />
+                            <br>
+                        }
+                        <h4><b>@user.FirstName @user.LastName</b></h4>
+                        @if (!string.IsNullOrWhiteSpace(user.TwitterUrl))
+                        {
+                            <a href="@user.TwitterUrl"><span class="fa fa-twitter-square fa-2x"></span></a>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(user.LinkedinUrl))
+                        {
+                            <a href="@user.LinkedinUrl"><span class="fa fa-linkedin-square fa-2x"></span></a>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(user.Bio))
+                        {
+                            <p>@user.Bio</p>
+                        }
+
+
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>

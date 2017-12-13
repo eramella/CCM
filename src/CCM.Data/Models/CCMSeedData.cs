@@ -156,7 +156,7 @@ namespace CCM.Data.Models
                 var user = new CCMUser()
                 {
                     UserName = "Daisy",
-                    FirstName = "Hattan",
+                    FirstName = "Daisy",
                     LastName = "Shobokshi",
                     Email = "daisy@daisy.com",
                     LinkedinUrl = "https://www.linkedin.com/in/daisyshobokshi"

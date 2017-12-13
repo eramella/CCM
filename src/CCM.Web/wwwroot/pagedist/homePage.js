@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d20e77460e61beb4e698"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ef5b2e3aad570d7c993a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10740,11 +10740,39 @@ var options = {
   reload: false,
   log: true,
   warn: true,
-  name: ''
+  name: '',
+  autoConnect: true,
+  overlayStyles: {},
+  ansiColors: {}
 };
 if (true) {
   var querystring = __webpack_require__(14);
   var overrides = querystring.parse(__resourceQuery.slice(1));
+  setOverrides(overrides);
+}
+
+if (typeof window === 'undefined') {
+  // do nothing
+} else if (typeof window.EventSource === 'undefined') {
+  console.warn(
+    "webpack-hot-middleware's client requires EventSource to work. " +
+    "You should include a polyfill if you want to support this browser: " +
+    "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events#Tools"
+  );
+} else {
+  if (options.autoConnect) {
+    connect();
+  }
+}
+
+/* istanbul ignore next */
+function setOptionsAndConnect(overrides) {
+  setOverrides(overrides);
+  connect();
+}
+
+function setOverrides(overrides) {
+  if (overrides.autoConnect) options.autoConnect = overrides.autoConnect == 'true';
   if (overrides.path) options.path = overrides.path;
   if (overrides.timeout) options.timeout = overrides.timeout;
   if (overrides.overlay) options.overlay = overrides.overlay !== 'false';
@@ -10759,21 +10787,13 @@ if (true) {
     options.log = false;
     options.warn = false;
   }
+
   if (overrides.dynamicPublicPath) {
     options.path = __webpack_require__.p + options.path;
   }
-}
 
-if (typeof window === 'undefined') {
-  // do nothing
-} else if (typeof window.EventSource === 'undefined') {
-  console.warn(
-    "webpack-hot-middleware's client requires EventSource to work. " +
-    "You should include a polyfill if you want to support this browser: " +
-    "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events#Tools"
-  );
-} else {
-  connect();
+  if (overrides.ansiColors) options.ansiColors = JSON.parse(overrides.ansiColors);
+  if (overrides.overlayStyles) options.overlayStyles = JSON.parse(overrides.overlayStyles);
 }
 
 function EventSourceWrapper() {
@@ -10867,7 +10887,10 @@ function createReporter() {
 
   var overlay;
   if (typeof document !== 'undefined' && options.overlay) {
-    overlay = __webpack_require__(16);
+    overlay = __webpack_require__(16)({
+      ansiColors: options.ansiColors,
+      overlayStyles: options.overlayStyles
+    });
   }
 
   var styles = {
@@ -10981,7 +11004,8 @@ if (module) {
     },
     useCustomOverlay: function useCustomOverlay(customOverlay) {
       if (reporter) reporter.useCustomOverlay(customOverlay);
-    }
+    },
+    setOptionsAndConnect: setOptionsAndConnect
   };
 }
 
@@ -16161,9 +16185,6 @@ var styles = {
   dir: 'ltr',
   textAlign: 'left'
 };
-for (var key in styles) {
-  clientOverlay.style[key] = styles[key];
-}
 
 var ansiHTML = __webpack_require__(3);
 var colors = {
@@ -16178,12 +16199,10 @@ var colors = {
   lightgrey: 'EBE7E3',
   darkgrey: '6D7891'
 };
-ansiHTML.setColors(colors);
 
 var Entities = __webpack_require__(7).AllHtmlEntities;
 var entities = new Entities();
 
-exports.showProblems =
 function showProblems(type, lines) {
   clientOverlay.innerHTML = '';
   lines.forEach(function(msg) {
@@ -16196,21 +16215,19 @@ function showProblems(type, lines) {
   if (document.body) {
     document.body.appendChild(clientOverlay);
   }
-};
+}
 
-exports.clear =
 function clear() {
   if (document.body && clientOverlay.parentNode) {
     document.body.removeChild(clientOverlay);
   }
-};
-
-var problemColors = {
-  errors: colors.red,
-  warnings: colors.yellow
-};
+}
 
 function problemType (type) {
+  var problemColors = {
+    errors: colors.red,
+    warnings: colors.yellow
+  };
   var color = problemColors[type] || colors.red;
   return (
     '<span style="background-color:#' + color + '; color:#fff; padding:2px 4px; border-radius: 2px">' +
@@ -16218,6 +16235,31 @@ function problemType (type) {
     '</span>'
   );
 }
+
+module.exports = function(options) {
+  for (var color in options.overlayColors) {
+    if (color in colors) {
+      colors[color] = options.overlayColors[color];
+    }
+    ansiHTML.setColors(colors);
+  }
+
+  for (var style in options.overlayStyles) {
+    styles[style] = options.overlayStyles[style];
+  }
+
+  for (var key in styles) {
+    clientOverlay.style[key] = styles[key];
+  }
+
+  return {
+    showProblems: showProblems,
+    clear: clear
+  }
+};
+
+module.exports.clear = clear;
+module.exports.showProblems = showProblems;
 
 
 /***/ }),
@@ -16236,11 +16278,25 @@ if (false) {
   throw new Error("[HMR] Hot Module Replacement is disabled.");
 }
 
-var hmrDocsUrl = "http://webpack.github.io/docs/hot-module-replacement-with-webpack.html"; // eslint-disable-line max-len
+var hmrDocsUrl = "https://webpack.js.org/concepts/hot-module-replacement/"; // eslint-disable-line max-len
 
 var lastHash;
 var failureStatuses = { abort: 1, fail: 1 };
-var applyOptions = { ignoreUnaccepted: true };
+var applyOptions = { 				
+  ignoreUnaccepted: true,
+  ignoreDeclined: true,
+  ignoreErrored: true,
+  onUnaccepted: function(data) {
+    console.warn("Ignored an update to unaccepted module " + data.chain.join(" -> "));
+  },
+  onDeclined: function(data) {
+    console.warn("Ignored an update to declined module " + data.chain.join(" -> "));
+  },
+  onErrored: function(data) {
+    console.error(data.error);
+    console.warn("Ignored an error while updating module " + data.moduleId + " (" + data.type + ")");
+  } 
+}
 
 function upToDate(hash) {
   if (hash) lastHash = hash;

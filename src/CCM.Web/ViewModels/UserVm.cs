@@ -6,6 +6,7 @@ namespace CCM.ViewModels
 {
     public class UserVm
     {
+        public String Id { get; set; }
         public String Username { get; set; }
 
         [Display(Name = "First Name")]
