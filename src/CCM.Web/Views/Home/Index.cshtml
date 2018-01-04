@@ -251,7 +251,7 @@
     <script src="~/pagedist/homePage.js" asp-append-version="true" type="text/javascript"></script>
     <script src="@("https://maps.googleapis.com/maps/api/js?key=" + settings.Value.GoogleMapApiKey)"></script>
 
-    @if (Model.UpcomingCamp.LocationAddress != null && @Model.UpcomingCamp.LocationCity != null)
+    @if (Model.UpcomingCamp != null && Model.UpcomingCamp.LocationAddress != null && @Model.UpcomingCamp.LocationCity != null)
     {
         <script>
         var map;
