@@ -6,9 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using CCM.Data.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using CCM.ViewModels;
@@ -147,7 +145,15 @@ namespace WebApplicationBasic
                 });
             }
 
-            app.UseStaticFiles();            
+            app.UseStaticFiles();
+
+            app.UseCookiePolicy();
+            app.Use((context, next) =>
+            {
+                context.Features.Set<ITrackingConsentFeature>(new TrackingConsentFeature(context));
+
+                return next();
+            });
 
             app.UseAuthentication();
 
