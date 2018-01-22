@@ -20,8 +20,10 @@ namespace CCM.Data
         public CCMContext CreateDbContext()
         {         
             var basePath = Directory.GetCurrentDirectory();
+            basePath = basePath.Replace("CCM.Data", "CCM.Web");
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
+            if (string.IsNullOrEmpty(environmentName))
+                environmentName = "Development";
             return CreateDbContext(basePath, environmentName);
         }        
 
@@ -40,7 +42,7 @@ namespace CCM.Data
             if (String.IsNullOrWhiteSpace(connstr) == true)
             {
                 throw new InvalidOperationException(
-                    "Could not find a connection string named '(default)'.");
+                    "Could not find a connection string named 'ConnectionStrings:CCMContextConnection'.");
             }
             else
             {

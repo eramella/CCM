@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1dd1e1e14ebd951e0a3e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9d1e7878f7f66e6506db"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -714,7 +714,7 @@
 /***/ 0:
 /***/ (function(module, exports) {
 
-module.exports = vendor_4bf7cd7308a9c205b1cf;
+module.exports = vendor_718bfac450ea726ed01f;
 
 /***/ }),
 
@@ -1671,7 +1671,7 @@ Object.defineProperty(__WEBPACK_IMPORTED_MODULE_0_aurelia_pal__["PLATFORM"], "Lo
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(149);
+module.exports = (__webpack_require__(0))(151);
 
 /***/ }),
 
@@ -15628,7 +15628,7 @@ module.exports = function(hash, moduleMap, options) {
 /***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(1);
+module.exports = (__webpack_require__(0))(2);
 
 /***/ }),
 
@@ -15642,56 +15642,56 @@ module.exports = (__webpack_require__(0))(13);
 /***/ 51:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(152);
+module.exports = (__webpack_require__(0))(154);
 
 /***/ }),
 
 /***/ 52:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(154);
+module.exports = (__webpack_require__(0))(156);
 
 /***/ }),
 
 /***/ 53:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(155);
+module.exports = (__webpack_require__(0))(157);
 
 /***/ }),
 
 /***/ 54:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(156);
+module.exports = (__webpack_require__(0))(158);
 
 /***/ }),
 
 /***/ 55:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(157);
+module.exports = (__webpack_require__(0))(159);
 
 /***/ }),
 
 /***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(158);
+module.exports = (__webpack_require__(0))(160);
 
 /***/ }),
 
 /***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(211);
+module.exports = (__webpack_require__(0))(214);
 
 /***/ }),
 
 /***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(214);
+module.exports = (__webpack_require__(0))(217);
 
 /***/ }),
 
@@ -16083,7 +16083,7 @@ module.exports = __webpack_require__(17);
 /***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(2);
+module.exports = (__webpack_require__(0))(1);
 
 /***/ }),
 
@@ -16205,28 +16205,28 @@ module.exports = "<template>\r\n    <loading-indicator loading.bind=\"router.isN
 /***/ "aurelia-bootstrap-datetimepicker":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(147);
+module.exports = (__webpack_require__(0))(149);
 
 /***/ }),
 
 /***/ "aurelia-bootstrap-datetimepicker/abp-datetime-picker":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(159);
+module.exports = (__webpack_require__(0))(161);
 
 /***/ }),
 
 /***/ "aurelia-bootstrap-datetimepicker/abp-datetime-picker.html":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(173);
+module.exports = (__webpack_require__(0))(177);
 
 /***/ }),
 
 /***/ "aurelia-dialog":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(148);
+module.exports = (__webpack_require__(0))(150);
 
 /***/ }),
 
@@ -16296,7 +16296,7 @@ module.exports = (__webpack_require__(0))(59);
 /***/ "aurelia-pal-browser":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(151);
+module.exports = (__webpack_require__(0))(153);
 
 /***/ }),
 
@@ -16342,87 +16342,94 @@ module.exports = (__webpack_require__(0))(80);
 
 /***/ }),
 
-/***/ "aurelia-templating-resources/focus":
+/***/ "aurelia-templating-resources/else":
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(81);
 
 /***/ }),
 
-/***/ "aurelia-templating-resources/hide":
+/***/ "aurelia-templating-resources/focus":
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(0))(82);
 
 /***/ }),
 
+/***/ "aurelia-templating-resources/hide":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(0))(83);
+
+/***/ }),
+
 /***/ "aurelia-templating-resources/if":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(84);
+module.exports = (__webpack_require__(0))(86);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/repeat":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(89);
+module.exports = (__webpack_require__(0))(91);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/replaceable":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(90);
+module.exports = (__webpack_require__(0))(92);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/sanitize-html":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(91);
+module.exports = (__webpack_require__(0))(93);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/self-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(92);
+module.exports = (__webpack_require__(0))(94);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/show":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(94);
+module.exports = (__webpack_require__(0))(96);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/signal-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(95);
+module.exports = (__webpack_require__(0))(97);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/throttle-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(96);
+module.exports = (__webpack_require__(0))(98);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/update-trigger-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(97);
+module.exports = (__webpack_require__(0))(99);
 
 /***/ }),
 
 /***/ "aurelia-templating-resources/with":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(98);
+module.exports = (__webpack_require__(0))(100);
 
 /***/ }),
 
@@ -16436,7 +16443,7 @@ module.exports = (__webpack_require__(0))(63);
 /***/ "aurelia-templating-router/route-href":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(99);
+module.exports = (__webpack_require__(0))(101);
 
 /***/ }),
 
@@ -16450,28 +16457,28 @@ module.exports = (__webpack_require__(0))(38);
 /***/ "aurelia-validation":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(153);
+module.exports = (__webpack_require__(0))(155);
 
 /***/ }),
 
 /***/ "aurelia-validation/validate-binding-behavior":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(105);
+module.exports = (__webpack_require__(0))(107);
 
 /***/ }),
 
 /***/ "aurelia-validation/validation-errors-custom-attribute":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(107);
+module.exports = (__webpack_require__(0))(109);
 
 /***/ }),
 
 /***/ "aurelia-validation/validation-renderer-custom-attribute":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(0))(108);
+module.exports = (__webpack_require__(0))(110);
 
 /***/ }),
 
@@ -17097,10 +17104,25 @@ exports.Sessions = Sessions;
 
 /***/ }),
 
-/***/ "sessions/sessions.html":
-/***/ (function(module, exports) {
+/***/ "sessions/sessions.css":
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<template>\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <h1 class=\"centered\">SESSIONS</h1>\r\n            <hr>\r\n            <br>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12 text-right session\">\r\n                <a class=\"btn btn-default\" route-href=\"route: addSession\">Add A Session</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\" repeat.for=\"session of sessions\">\r\n            <div class=\"col-md-12 session\">\r\n                <div class=\"col-sm-2 col-xs-12 col-height session-header\">\r\n\r\n                    <div class=\"round-image-cropper\" css=\"background-image: url('/Profile/GetImage/${ session.userId }');\"></div>\r\n                    <a click.delegate=\"seeSpeakerBio(session.userId)\" style=\"cursor: pointer\"><h4>${session.userFirstName} ${session.userLastName}</h4></a>\r\n                    <h5>Level: ${session.levelName}</h5>\r\n\r\n\r\n                </div>\r\n                <div class=\"col-sm-10 col-xs-12 col-height session-content\">\r\n                    <h2 click.trigger=\"seeFullSession(session)\" style=\"cursor:pointer\">${ session.title }</h2>\r\n                    <p class=\"session-text\">\r\n                        <span  innerHTML.bind=\"session.description\"></span>\r\n                        \r\n\r\n                    </p>\r\n                    <div class=\"text-right\" style=\"margin-top:-25px;\"><small><span click.delegate=\"seeFullSession(session)\" class=\"label label-default\" style=\"cursor:pointer\">ReadMore</span></small></div>\r\n                    <p>\r\n                        <span repeat.for=\"tag of session.tags\">\r\n                            <span class=\"label label-info\">${tag}</span>\r\n                        </span>\r\n                    </p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n";
+exports = module.exports = __webpack_require__(1)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".session {\r\n    margin-bottom: 40px;\r\n}\r\n\r\n    .session .round-image-cropper {\r\n        float: none;\r\n        margin-top: -30px;\r\n    }\r\n\r\n.session-header {\r\n    background: #2b2b2b;\r\n}\r\n\r\n    .session-header h4 {\r\n        color: #dadada;\r\n        padding-top: 0px;\r\n    }\r\n\r\n    .session-header h5 {\r\n        color: #dadada;\r\n        font-size: 13px;\r\n        bottom: 0;\r\n        position: absolute;\r\n        margin-bottom: 30px;\r\n    }\r\n\r\n.session-content {\r\n    background: #f2f2f2;\r\n}\r\n\r\n.col-height {\r\n    display: table-cell;\r\n    float: none;\r\n    height: 100%;\r\n}\r\n\r\n.session-text {\r\n    height: 56px;\r\n    overflow: hidden;\r\n    position: relative;\r\n}\r\n\r\n    .session-text .read-more {\r\n        position: absolute;\r\n        bottom: 0;\r\n        right:0;\r\n        margin-bottom: 5px;\r\n    }\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "sessions/sessions.html":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = "<template>\r\n    <require from=\"./sessions.css\"></require>\r\n\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <h1 class=\"centered\">SESSIONS</h1>\r\n            <hr>\r\n            <br>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12 text-right session\">\r\n                <a class=\"btn btn-default\" route-href=\"route: addSession\">Add A Session</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\" repeat.for=\"session of sessions\">\r\n            <div class=\"col-md-12 session\">\r\n                <div class=\"col-sm-2 col-xs-12 col-height session-header\">\r\n\r\n                    <div class=\"round-image-cropper\" css=\"background-image: url('/Profile/GetImage/${ session.userId }');\"></div>\r\n                    <a click.delegate=\"seeSpeakerBio(session.userId)\" style=\"cursor: pointer\"><h4>${session.userFirstName} ${session.userLastName}</h4></a>\r\n                    <h5>Level: ${session.levelName}</h5>\r\n\r\n\r\n                </div>\r\n                <div class=\"col-sm-10 col-xs-12 col-height session-content\">\r\n                    <h2 click.trigger=\"seeFullSession(session)\" style=\"cursor:pointer\">${ session.title }</h2>\r\n                    <p class=\"session-text\">\r\n                        <span  innerHTML.bind=\"session.description\"></span>\r\n                        \r\n\r\n                    </p>\r\n                    <div class=\"text-right\" style=\"margin-top:-25px;\"><small><span click.delegate=\"seeFullSession(session)\" class=\"label label-default\" style=\"cursor:pointer\">ReadMore</span></small></div>\r\n                    <p>\r\n                        <span repeat.for=\"tag of session.tags\">\r\n                            <span class=\"label label-info\">${tag}</span>\r\n                        </span>\r\n                    </p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n";
 
 /***/ }),
 
