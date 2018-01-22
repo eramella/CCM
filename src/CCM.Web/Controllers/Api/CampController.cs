@@ -88,13 +88,9 @@ namespace CCM.Controllers.Api
                 try
                 {
                     UnitOfWork uow = new UnitOfWork(_context);
-                    var existingCamp = await uow.CampRepository.GetCampById(id);
-                    if (existingCamp == null)
-                    {
-                        return NotFound($"Could not find Camp of id: {id}");
-                    }
+                    var updatedCamp = _mapper.Map<CampVm,Camp>(model);
 
-                    _mapper.Map(model, existingCamp);
+                    uow.CampRepository.UpdateCamp(updatedCamp);
 
                     if (await uow.SaveAsync())
                     {

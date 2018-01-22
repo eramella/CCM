@@ -24,10 +24,18 @@
                                 Program <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="speakers">Speakers</a></li>
-                                <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="sessions">Session List</a></li>
-                                <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="tracks">Tracks</a></li>
-                                <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="schedule">Schedule</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="speakers">Speakers</a></li>
+                                    <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="sessions">Session List</a></li>
+                                    <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="tracks">Tracks</a></li>
+                                    <li><a asp-controller="camp" asp-route-id="@Model.Id" asp-fragment="schedule">Schedule</a></li>
+                                }
+                                else
+                                {
+                                    <li><a asp-controller="speaker" asp-action="index" asp-route-id="@Model.Id">Speakers</a></li>
+                                    <li><a asp-controller="session" asp-action="index" asp-route-id="@Model.Id">Session List</a></li>
+                                }
                             </ul>
                         </li>
                     }

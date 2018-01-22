@@ -10235,7 +10235,7 @@ html, body {
   position: fixed;
   right: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 999;
   top: 52px; }
 
 .child-navbar > li.active > a, .child-navbar > li.active > a:hover, .child-navbar > li.active > a:focus {
@@ -10300,6 +10300,46 @@ html, body {
 .editor-content p {
   margin: 0;
   padding: 0; }
+
+.session {
+  margin-bottom: 40px; }
+
+.session .round-image-cropper {
+  float: none;
+  margin-top: -30px; }
+
+.session-header {
+  background: #2b2b2b; }
+
+.session-header h4 {
+  color: #dadada;
+  padding-top: 0px; }
+
+.session-header h5 {
+  color: #dadada;
+  font-size: 13px;
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 30px; }
+
+.session-content {
+  background: #f2f2f2; }
+
+.col-height {
+  display: table-cell;
+  float: none;
+  height: 100%; }
+
+.session-text {
+  height: 56px;
+  overflow: hidden;
+  position: relative; }
+
+.session-text .read-more {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 5px; }
 
 body {
   padding-top: 50px; }

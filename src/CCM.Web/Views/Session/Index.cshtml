@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CCM.ViewModels.SessionVm>
+@{
+    ViewData["Title"] = "Sessions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h1 class="centered">SESSIONS</h1>
+        <hr>
+        <br>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-right session">
+            <a class="btn btn-link" asp-controller="Auth" asp-action="Login">Log in to Add a Session</a>
+        </div>
+    </div>
+    @foreach (var session in Model)
+    {
+        <div class="row">
+            <div class="col-md-12 session">
+                <div class="col-sm-2 col-xs-12 col-height session-header">
+                    <div class="round-image-cropper" style="background-image: url('/Profile/GetImage/@session.UserId');"></div>
+                    <h4>@session.UserFirstName @session.UserLastName</h4>
+                    <h5>Level: @session.LevelName</h5>
+
+
+                </div>
+                <div class="col-sm-10 col-xs-12 col-height session-content">
+                    <h2>@session.Title</h2>
+                    @Html.Raw(session.Description)
+                    <p>
+                        @foreach (var tag in session.Tags)
+                        {
+                            <span class="label label-info">@tag</span>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

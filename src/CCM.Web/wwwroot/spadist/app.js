@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "17bd930714c09bb466ef"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1dd1e1e14ebd951e0a3e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -17097,25 +17097,10 @@ exports.Sessions = Sessions;
 
 /***/ }),
 
-/***/ "sessions/sessions.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".session {\r\n    margin-bottom: 40px;\r\n}\r\n\r\n    .session .round-image-cropper {\r\n        float: none;\r\n        margin-top: -30px;\r\n    }\r\n\r\n.session-header {\r\n    background: #2b2b2b;\r\n}\r\n\r\n    .session-header h4 {\r\n        color: #dadada;\r\n        padding-top: 0px;\r\n    }\r\n\r\n    .session-header h5 {\r\n        color: #dadada;\r\n        font-size: 13px;\r\n        bottom: 0;\r\n        position: absolute;\r\n        margin-bottom: 30px;\r\n    }\r\n\r\n.session-content {\r\n    background: #f2f2f2;\r\n}\r\n\r\n.col-height {\r\n    display: table-cell;\r\n    float: none;\r\n    height: 100%;\r\n}\r\n\r\n.session-text {\r\n    height: 56px;\r\n    overflow: hidden;\r\n    position: relative;\r\n}\r\n\r\n    .session-text .read-more {\r\n        position: absolute;\r\n        bottom: 0;\r\n        right:0;\r\n        margin-bottom: 5px;\r\n    }\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "sessions/sessions.html":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = "<template>\r\n    <require from=\"./sessions.css\"></require>\r\n\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <h1 class=\"centered\">SESSIONS</h1>\r\n            <hr>\r\n            <br>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12 text-right session\">\r\n                <a class=\"btn btn-default\" route-href=\"route: addSession\">Add A Session</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\" repeat.for=\"session of sessions\">\r\n            <div class=\"col-md-12 session\">\r\n                <div class=\"col-sm-2 col-xs-12 col-height session-header\">\r\n\r\n                    <div class=\"round-image-cropper\" css=\"background-image: url('/Profile/GetImage/${ session.userId }');\"></div>\r\n                    <a click.delegate=\"seeSpeakerBio(session.userId)\" style=\"cursor: pointer\"><h4>${session.userFirstName} ${session.userLastName}</h4></a>\r\n                    <h5>Level: ${session.levelName}</h5>\r\n\r\n\r\n                </div>\r\n                <div class=\"col-sm-10 col-xs-12 col-height session-content\">\r\n                    <h2 click.trigger=\"seeFullSession(session)\" style=\"cursor:pointer\">${ session.title }</h2>\r\n                    <p class=\"session-text\">\r\n                        <span  innerHTML.bind=\"session.description\"></span>\r\n                        \r\n\r\n                    </p>\r\n                    <div class=\"text-right\" style=\"margin-top:-25px;\"><small><span click.delegate=\"seeFullSession(session)\" class=\"label label-default\" style=\"cursor:pointer\">ReadMore</span></small></div>\r\n                    <p>\r\n                        <span repeat.for=\"tag of session.tags\">\r\n                            <span class=\"label label-info\">${tag}</span>\r\n                        </span>\r\n                    </p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n";
+module.exports = "<template>\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <h1 class=\"centered\">SESSIONS</h1>\r\n            <hr>\r\n            <br>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12 text-right session\">\r\n                <a class=\"btn btn-default\" route-href=\"route: addSession\">Add A Session</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\" repeat.for=\"session of sessions\">\r\n            <div class=\"col-md-12 session\">\r\n                <div class=\"col-sm-2 col-xs-12 col-height session-header\">\r\n\r\n                    <div class=\"round-image-cropper\" css=\"background-image: url('/Profile/GetImage/${ session.userId }');\"></div>\r\n                    <a click.delegate=\"seeSpeakerBio(session.userId)\" style=\"cursor: pointer\"><h4>${session.userFirstName} ${session.userLastName}</h4></a>\r\n                    <h5>Level: ${session.levelName}</h5>\r\n\r\n\r\n                </div>\r\n                <div class=\"col-sm-10 col-xs-12 col-height session-content\">\r\n                    <h2 click.trigger=\"seeFullSession(session)\" style=\"cursor:pointer\">${ session.title }</h2>\r\n                    <p class=\"session-text\">\r\n                        <span  innerHTML.bind=\"session.description\"></span>\r\n                        \r\n\r\n                    </p>\r\n                    <div class=\"text-right\" style=\"margin-top:-25px;\"><small><span click.delegate=\"seeFullSession(session)\" class=\"label label-default\" style=\"cursor:pointer\">ReadMore</span></small></div>\r\n                    <p>\r\n                        <span repeat.for=\"tag of session.tags\">\r\n                            <span class=\"label label-info\">${tag}</span>\r\n                        </span>\r\n                    </p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n";
 
 /***/ }),
 
