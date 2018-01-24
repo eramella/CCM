@@ -28,11 +28,11 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="DateFrom">Start on:</label>
-                                <abp-datetime-picker element.bind="fromPicker" value.bind="currentCamp.dateFrom & validate" options.bind="{ format: 'MMM DD, YYYY' }" ></abp-datetime-picker>
+                                <abp-datetime-picker element.bind="fromPicker" model.bind="currentCamp.dateFrom & validate" options.bind="{ format: 'MMM DD, YYYY' }" ></abp-datetime-picker>
                             </div>                            
                             <div class="col-sm-6">
                                 <label for="DateTo">Ends on:</label>
-                                <abp-datetime-picker value.bind="currentCamp.dateTo & validate" options.bind="{ format: 'MMM DD, YYYY' }"></abp-datetime-picker>
+                                <abp-datetime-picker model.bind="currentCamp.dateTo & validate" options.bind="{ format: 'MMM DD, YYYY' }"></abp-datetime-picker>
                             </div>
                         </div>
                     </div>
@@ -46,15 +46,15 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-lg-9 col-xs-12">
+                            <div class="col-lg-9 col-md-6 col-xs-12">
                                 <label for="LocationCity">City:</label>
                                 <input type="text" id="LocationCity" class="form-control" value.bind="currentCamp.locationCity" />
                             </div>
-                            <div class="col-md-2 col-xs-12">
+                            <div class="col-lg-2 col-md-4 col-xs-12">
                                 <label for="LocationZip">Zip:</label>
                                 <input type="text" id="LocationZip" class="form-control" value.bind="currentCamp.locationZip" />
                             </div>
-                            <div class="col-md-1 col-xs-12">
+                            <div class="col-lg-1 col-md-2 col-xs-12">
                                 <label for="LocationState">State:</label>
                                 <select class="form-control" id="LocationState" value.bind="currentCamp.locationState">
                                     <option value="">--</option>

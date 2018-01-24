@@ -2,6 +2,8 @@
 @{
     ViewData["Title"] = "Sessions";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var returnUrl = "/camp/" + Model.FirstOrDefault().CampId + "#sessions";
 }
 
 <div class="container">
@@ -12,7 +14,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 text-right session">
-            <a class="btn btn-link" asp-controller="Auth" asp-action="Login">Log in to Add a Session</a>
+            <a class="btn btn-link" asp-controller="Auth" asp-action="Login" asp-route-returnUrl="@returnUrl">Log in to Add a Session</a>
         </div>
     </div>
     @foreach (var session in Model)

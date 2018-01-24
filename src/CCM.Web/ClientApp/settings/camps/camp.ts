@@ -9,6 +9,7 @@ import { Notifier } from '../../helpers/notifier';
 import { CampStates } from "../ICampStates";
 import { CampService } from "../../services/campService";
 import { UsState, UsStatesService } from "../../services/usStateService";
+import * as moment from 'moment';
 
 
 @inject(Router, NewInstance.of(ValidationController), DialogService, Notifier, CampService, UsStatesService)
@@ -65,8 +66,8 @@ export class Camp {
 
     fromPickerChanged() {
         this.fromPicker.events.onChange = (e) => {
-            if (this.currentCamp.dateTo < e.date) {
-                this.currentCamp.dateTo = e.date;
+            if (moment(this.currentCamp.dateTo).isBefore(e.date)) {
+                this.currentCamp.dateTo = e.date.toDate();
             }
         }
     }
