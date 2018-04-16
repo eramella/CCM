@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup Label="Globals">
     <SccProjectName>SAK</SccProjectName>
     <SccProvider>SAK</SccProvider>
@@ -7,7 +7,7 @@
     <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -17,18 +17,50 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" />
-    <!--<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="2.0.0-preview1-final" />-->
-    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0-preview1-final" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.0-preview1-final" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0-preview1-final" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0-preview1-final" />
   </ItemGroup>
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.1.0-preview1-final" />
   </ItemGroup>
   <ItemGroup>
     <!-- Files not to show in IDE -->
+    <None Remove="ClientApp\app\app.ts" />
+    <None Remove="ClientApp\boot.ts" />
+    <None Remove="ClientApp\components\image-upload.ts" />
+    <None Remove="ClientApp\components\loading-indicator.ts" />
+    <None Remove="ClientApp\components\quill-editor.ts" />
+    <None Remove="ClientApp\components\tags-input.ts" />
+    <None Remove="ClientApp\helpers\bootstrap-form-validation-renderer.ts" />
+    <None Remove="ClientApp\helpers\date-format.ts" />
+    <None Remove="ClientApp\helpers\fetch-error-handler.ts" />
+    <None Remove="ClientApp\helpers\get-camp-id.ts" />
+    <None Remove="ClientApp\helpers\notifier.ts" />
+    <None Remove="ClientApp\schedule\schedule.ts" />
+    <None Remove="ClientApp\services\appSettingsService.ts" />
+    <None Remove="ClientApp\services\campService.ts" />
     <None Remove="ClientApp\services\usersService.ts" />
+    <None Remove="ClientApp\services\usStateService.ts" />
+    <None Remove="ClientApp\sessions\addsession.ts" />
+    <None Remove="ClientApp\sessions\ISession.ts" />
+    <None Remove="ClientApp\sessions\ISessionLevel.ts" />
+    <None Remove="ClientApp\sessions\ITag.ts" />
+    <None Remove="ClientApp\sessions\SessionPopup.ts" />
+    <None Remove="ClientApp\sessions\sessions.ts" />
+    <None Remove="ClientApp\sessions\speakerBioPopup.ts" />
+    <None Remove="ClientApp\settings\camps\camp.ts" />
+    <None Remove="ClientApp\settings\camps\camps.ts" />
+    <None Remove="ClientApp\settings\camps\deleteCampDialog.ts" />
+    <None Remove="ClientApp\settings\camps\ICamp.ts" />
+    <None Remove="ClientApp\settings\config\config.ts" />
+    <None Remove="ClientApp\settings\config\IAppSettings.ts" />
+    <None Remove="ClientApp\settings\ICampStates.ts" />
+    <None Remove="ClientApp\settings\settings.ts" />
+    <None Remove="ClientApp\settings\users\usersroles.ts" />
+    <None Remove="ClientApp\speakers\speakers.ts" />
+    <None Remove="ClientApp\tracks\tracks.ts" />
     <None Remove="yarn.lock" />
   </ItemGroup>
   <ItemGroup>
@@ -36,8 +68,40 @@
     <ProjectReference Include="..\CCM.Data\CCM.Data.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\app.ts" />
+    <TypeScriptCompile Include="ClientApp\boot.ts" />
+    <TypeScriptCompile Include="ClientApp\components\image-upload.ts" />
+    <TypeScriptCompile Include="ClientApp\components\loading-indicator.ts" />
+    <TypeScriptCompile Include="ClientApp\components\quill-editor.ts" />
+    <TypeScriptCompile Include="ClientApp\components\tags-input.ts" />
+    <TypeScriptCompile Include="ClientApp\helpers\bootstrap-form-validation-renderer.ts" />
+    <TypeScriptCompile Include="ClientApp\helpers\date-format.ts" />
+    <TypeScriptCompile Include="ClientApp\helpers\fetch-error-handler.ts" />
+    <TypeScriptCompile Include="ClientApp\helpers\get-camp-id.ts" />
+    <TypeScriptCompile Include="ClientApp\helpers\notifier.ts" />
+    <TypeScriptCompile Include="ClientApp\schedule\schedule.ts" />
+    <TypeScriptCompile Include="ClientApp\services\appSettingsService.ts" />
+    <TypeScriptCompile Include="ClientApp\services\campService.ts" />
     <TypeScriptCompile Include="ClientApp\services\usersService.ts" />
+    <TypeScriptCompile Include="ClientApp\services\usStateService.ts" />
+    <TypeScriptCompile Include="ClientApp\sessions\addsession.ts" />
+    <TypeScriptCompile Include="ClientApp\sessions\ISession.ts" />
+    <TypeScriptCompile Include="ClientApp\sessions\ISessionLevel.ts" />
+    <TypeScriptCompile Include="ClientApp\sessions\ITag.ts" />
+    <TypeScriptCompile Include="ClientApp\sessions\SessionPopup.ts" />
+    <TypeScriptCompile Include="ClientApp\sessions\sessions.ts" />
+    <TypeScriptCompile Include="ClientApp\sessions\speakerBioPopup.ts" />
+    <TypeScriptCompile Include="ClientApp\settings\camps\camp.ts" />
+    <TypeScriptCompile Include="ClientApp\settings\camps\camps.ts" />
+    <TypeScriptCompile Include="ClientApp\settings\camps\deleteCampDialog.ts" />
+    <TypeScriptCompile Include="ClientApp\settings\camps\ICamp.ts" />
+    <TypeScriptCompile Include="ClientApp\settings\config\config.ts" />
+    <TypeScriptCompile Include="ClientApp\settings\config\IAppSettings.ts" />
+    <TypeScriptCompile Include="ClientApp\settings\ICampStates.ts" />
+    <TypeScriptCompile Include="ClientApp\settings\settings.ts" />
     <TypeScriptCompile Include="ClientApp\settings\users\usersroles.ts" />
+    <TypeScriptCompile Include="ClientApp\speakers\speakers.ts" />
+    <TypeScriptCompile Include="ClientApp\tracks\tracks.ts" />
   </ItemGroup>
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
